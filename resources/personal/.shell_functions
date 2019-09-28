@@ -1,0 +1,9 @@
+gitGetMasterChanges() {
+    BRANCH="$(git name-rev --name-only HEAD)"
+    git stash save -u
+    git checkout master
+    git merge ${BRANCH}
+    gco ${BRANCH}
+    git stash pop
+}
+

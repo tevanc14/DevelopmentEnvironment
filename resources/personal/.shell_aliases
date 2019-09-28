@@ -1,0 +1,45 @@
+SUBLIME="/usr/local/bin/sublime"
+
+# Navigation
+alias desk="cd ~/Desktop"
+alias dev="cd ~/dev"
+alias doc="cd ~/Documents"
+alias down="cd ~/Downloads"
+
+# Files
+alias edit_aliases="vim ~/.shell_aliases"
+alias edit_functions="vim ~/.shell_functions"
+alias edit_zsh="vim ~/.zshrc"
+alias source_zsh="source ~/.zshrc"
+
+# Pip
+alias pip_update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+
+# Virtual Environment
+alias activate="source venv/bin/activate"
+alias make_venv="virtualenv venv"
+
+# Python setup
+alias pyset="python setup.py"
+alias pysetbuild="python setup.py build"
+alias pysettest="python setup.py test"
+alias pysetzip="python setup.py zip"
+
+# Git
+alias gedit_commit="git commit --amend --no-edit && git push -f"
+alias glom="git pull origin master"
+alias gundo_commit="git reset HEAD~"
+
+# Npm
+alias n="npm"
+alias ni="npm install"
+alias nig="npm install -g"
+alias nisd="npm install --save-dev"
+alias nisp="npm install --save-prod"
+alias nr="npm run"
+alias nu="npm uninstall"
+alias nug="npm uninstall -g"
+alias nup="npm update"
+
+# Miscellaneous
+alias sublime=${SUBLIME}
