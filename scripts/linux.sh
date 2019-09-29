@@ -91,3 +91,6 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 # TODO: Add shortcut to bring up Terminator (if present, or create new)
 aptInstall terminator
 cp ./resources/personal/terminator.config ~/.config/terminator/config
+
+## Jetbrains Toolbox
+# Didn't find a way to do this yet
