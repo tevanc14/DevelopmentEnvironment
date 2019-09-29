@@ -3,6 +3,7 @@ SUBLIME="/usr/local/bin/sublime"
 # Navigation
 alias desk="cd ~/Desktop"
 alias dev="cd ~/dev"
+alias projects="cd ~/dev/projects"
 alias doc="cd ~/Documents"
 alias down="cd ~/Downloads"
 

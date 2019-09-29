@@ -4,34 +4,41 @@ DEV_DIR="~/dev"
 PROJECTS_DIR="${DEV_DIR}/projects"
 APPLICATIONS_DIR="${DEV_DIR}/applications"
 
+aptInstall() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "No package name passed into apt install, exiting..."
+        exit 2
+    else
+        sudo apt install ${1} -y
+    fi
+}
+
 # Misc
-sudo apt install curl
-sudo apt install xclip
+aptInstall curl
+aptInstall curl
+aptInstall xclip
 mkdir "${DEV_DIR}"
 mkdir "${PROJECTS_DIR}"
 mkdir "${APPLICATIONS_DIR}"
 
 # Git
-sudo apt install git
+aptInstall git
 git config --global user.name "Tevan Carrell"
 git config --global user.email "tevanc14@gmail.com"
 
 # Terminal (Will have to restart to get some changes)
-sudo apt install zsh
+aptInstall zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 sudo chsh -s $(which zsh)
-sudo apt install powerline fonts-powerline
+aptInstall powerline
+aptInstall fonts-powerline
 cd ~/.oh-my-zsh
 upgrade_oh_my_zsh
 
-# Vim
-sudo apt install vim
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-
 # Dot files
 cd "$(dirname "$0")"
-cp resources/personal/.zshrc resources/personal/.shell_aliases resources/personal/.shell_functions ~
+cp ./resources/personal/.zshrc ./resources/personal/.shell_aliases ./resources/personal/.shell_functions ~
+cd
 
 # OS Settings
 
@@ -56,10 +63,20 @@ code --install-extension Shan.code-settings-sync
 # Type ">Sync" In Command Palette into order download / upload
 
 ## Steam
-sudo apt install steam-installer
+aptInstall steam-installer
+
+# Vim
+aptInstall vim
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ## Guake
-sudo apt install guake
-# Can dump settings with dconf dump/apps/guake/
-dconf reset -f /apps/guake
-dconf load /apps/guake/ < resources/personal/guake.config
+# aptInstall guake
+# Can dump settings with dconf dump /apps/guake/
+# dconf reset -f /apps/guake
+# dconf load /apps/guake/ < resources/personal/guake.config
+
+## Terminator
+# TODO: Add shortcut to bring up Terminator (if present, or create new)
+aptInstall terminator
+cp ./resources/personal/terminator.config ~/.config/terminator/config

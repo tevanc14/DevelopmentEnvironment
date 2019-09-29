@@ -7,3 +7,15 @@ gitGetMasterChanges() {
     git stash pop
 }
 
+copyDevConfigs() {
+    DEV_ENV_DIR="/home/tevan/dev/projects/DevelopmentEnvironment"
+    DEST_DIR=${DEV_ENV_DIR}/resources/personal
+    cp /home/tevan/.shell_aliases \
+       /home/tevan/.shell_functions \
+       /home/tevan/.zshrc \
+       /home/tevan/.config/terminator/config \
+       ${DEST_DIR}
+    cd ${DEV_ENV_DIR}
+    mv ${DEST_DIR}/config ${DEST_DIR}/terminator.config
+}
+
