@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-DEV_DIR="~/dev"
-PROJECTS_DIR="${DEV_DIR}/projects"
-APPLICATIONS_DIR="${DEV_DIR}/applications"
+DEV_DIR=~/dev
+PROJECTS_DIR=${DEV_DIR}/projects
+APPLICATIONS_DIR=${DEV_DIR}/applications
 
 aptInstall() {
     if [[ "$#" -ne 1 ]]; then
@@ -17,9 +17,9 @@ aptInstall() {
 aptInstall curl
 aptInstall curl
 aptInstall xclip
-mkdir "${DEV_DIR}"
-mkdir "${PROJECTS_DIR}"
-mkdir "${APPLICATIONS_DIR}"
+mkdir ${DEV_DIR}
+mkdir ${PROJECTS_DIR}
+mkdir ${APPLICATIONS_DIR}
 
 # Git
 aptInstall git
@@ -93,4 +93,17 @@ aptInstall terminator
 cp ./resources/personal/terminator.config ~/.config/terminator/config
 
 ## Jetbrains Toolbox
-# Didn't find a way to do this yet
+JETBRAINS_TOOLBOX_DIR=${APPLICATIONS_DIR}/jetbrains-toolbox
+mkdir ${JETBRAINS_TOOLBOX_DIR}
+JETBRAINS_TOOLBOX_DOWNLOAD_NAME=jetbrains-toolbox.tar.gz
+# This will get outdated
+curl -sSL -o ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME} https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz          
+tar -zxf ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME} -C ${JETBRAINS_TOOLBOX_DIR}
+rm ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME}
+
+## Android Virtual Device
+aptInstall qemu-kvm
+sudo adduser $USER kvm
+
+## Drivers (pulls the recommended version of Nvidia driver)
+sudo ubuntu-drivers autoinstall
