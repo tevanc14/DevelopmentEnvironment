@@ -48,6 +48,12 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 ## Inactive screen timeout (in seconds)
 gsettings set org.gnome.desktop.session idle-delay 900
 
+## Set default audio device
+# Find name and ID with `pactl list sinks`
+# set-default-sink 'alsa_output.pci-0000_01_00.1.hdmi-stereo'
+# sudo sed -i 's/#set-default-sink output/set-default-sink 5/g' /etc/pulse/default.pa
+# sudo sed -i 's/#set-default-source input/set-default-source 5/g' /etc/pulse/default.pa
+
 # Applications
 
 ## Chrome
@@ -61,6 +67,11 @@ sudo snap install spotify
 sudo snap install code --classic
 code --install-extension Shan.code-settings-sync
 # Type ">Sync" In Command Palette into order download / upload
+# Get powerline font for integrated terminal
+git clone https://github.com/abertsch/Menlo-for-Powerline.git
+sudo mv Menlo-for-Powerline/*.ttf /usr/share/fonts/
+sudo fc-cache -vf /usr/share/fonts/
+rm -r Menlo-for-Powerline/
 
 ## Steam
 aptInstall steam-installer
