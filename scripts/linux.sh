@@ -15,7 +15,6 @@ aptInstall() {
 
 # Misc
 aptInstall curl
-aptInstall curl
 aptInstall xclip
 mkdir ${DEV_DIR}
 mkdir ${PROJECTS_DIR}
@@ -115,3 +114,8 @@ aptInstall wmctrl
 ### xbindkeys (map keys to commands)
 aptInstall xbindkeys
 cp ./resources/personal/.xbindkeysrc ~
+
+## Java
+aptInstall default-jdk
+# Will probably need to update version in here
+cp ./resources/personal/environment /etc/

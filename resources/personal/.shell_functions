@@ -15,6 +15,7 @@ copyDevConfigs() {
        /home/tevan/.zshrc \
        /home/tevan/.config/terminator/config \
        /home/tevan/.xbindkeysrc \
+       /etc/environment \
        ${DEST_DIR}
     cd ${DEV_ENV_DIR}
     mv ${DEST_DIR}/config ${DEST_DIR}/terminator.config

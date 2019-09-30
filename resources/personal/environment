@@ -1,0 +1,2 @@
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/tevan/dev/applications/flutter/bin:${JAVA_HOME}/bin"
