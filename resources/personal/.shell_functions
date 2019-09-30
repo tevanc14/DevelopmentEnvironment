@@ -21,3 +21,8 @@ copyDevConfigs() {
     mv ${DEST_DIR}/config ${DEST_DIR}/terminator.config
 }
 
+encryptCodemagicFirebase() {
+    PASSWORD=${1}
+    openssl enc -aes-256-cbc -iter 1000 -salt -in ios/Runner/GoogleService-Info.plist -out ios/Runner/GoogleService-Info.enc -k "${PASSWORD}"
+    openssl enc -aes-256-cbc -iter 1000 -salt -in android/app/google-services.json -out android/app/google-services.enc -k "${PASSWORD}"
+}
