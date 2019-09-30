@@ -88,7 +88,6 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 # dconf load /apps/guake/ < resources/personal/guake.config
 
 ## Terminator
-# TODO: Add shortcut to bring up Terminator (if present, or create new)
 aptInstall terminator
 cp ./resources/personal/terminator.config ~/.config/terminator/config
 
@@ -107,3 +106,12 @@ sudo adduser $USER kvm
 
 ## Drivers (pulls the recommended version of Nvidia driver)
 sudo ubuntu-drivers autoinstall
+
+## Keyboard shortcuts
+
+### wmctrl (map commands to open and focus windows)
+aptInstall wmctrl
+
+### xbindkeys (map keys to commands)
+aptInstall xbindkeys
+cp ./resources/personal/.xbindkeysrc ~
