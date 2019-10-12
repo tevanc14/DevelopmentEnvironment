@@ -119,3 +119,12 @@ cp ./resources/personal/.xbindkeysrc ~
 aptInstall default-jdk
 # Will probably need to update version in here
 cp ./resources/personal/environment /etc/
+
+## Sublime
+sudo snap install sublime-text --classic
+
+## Atom
+sudo snap install atom --classic
+
+## Postman
+sudo snap install postman
