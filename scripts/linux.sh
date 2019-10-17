@@ -47,6 +47,9 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 ## Inactive screen timeout (in seconds)
 gsettings set org.gnome.desktop.session idle-delay 900
 
+## Workspaces on all montiors
+gsettings set org.gnome.mutter workspaces-only-on-primary false
+
 ## Set default audio device
 # Find name and ID with `pactl list sinks`
 # set-default-sink 'alsa_output.pci-0000_01_00.1.hdmi-stereo'
@@ -80,12 +83,6 @@ aptInstall vim
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 
-## Guake
-# aptInstall guake
-# Can dump settings with dconf dump /apps/guake/
-# dconf reset -f /apps/guake
-# dconf load /apps/guake/ < resources/personal/guake.config
-
 ## Terminator
 aptInstall terminator
 cp ./resources/personal/terminator.config ~/.config/terminator/config
@@ -95,7 +92,7 @@ JETBRAINS_TOOLBOX_DIR=${APPLICATIONS_DIR}/jetbrains-toolbox
 mkdir ${JETBRAINS_TOOLBOX_DIR}
 JETBRAINS_TOOLBOX_DOWNLOAD_NAME=jetbrains-toolbox.tar.gz
 # This will get outdated
-curl -sSL -o ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME} https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz          
+curl -sSL -o ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME} https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz
 tar -zxf ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME} -C ${JETBRAINS_TOOLBOX_DIR}
 rm ${JETBRAINS_TOOLBOX_DOWNLOAD_NAME}
 
