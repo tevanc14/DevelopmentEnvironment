@@ -22,7 +22,16 @@ copyDevConfigs() {
 }
 
 encryptCodemagicFirebase() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "Need the key as an argument"
+        exit 2
+    fi
     PASSWORD=${1}
-    openssl enc -aes-256-cbc -iter 1000 -salt -in ios/Runner/GoogleService-Info.plist -out ios/Runner/GoogleService-Info.enc -k "${PASSWORD}"
-    openssl enc -aes-256-cbc -iter 1000 -salt -in android/app/google-services.json -out android/app/google-services.enc -k "${PASSWORD}"
+    # These lines are the updated, non-deprecated cipher. But codemagic doesn't use it yet, so we use the old one
+    #openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -salt -in ios/Runner/GoogleService-Info.plist -out ios/Runner/GoogleService-Info.enc -k "${PASSWORD}"
+    #openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -salt -in android/app/google-services.json -out android/app/google-services.enc -k "${PASSWORD}"
+
+    # Have to use libressl because that's what's on codemagic
+    /usr/local/bin/openssl enc -aes-256-cbc -md sha512 -salt -in ios/Runner/GoogleService-Info.plist -out ios/Runner/GoogleService-Info.enc -k "${PASSWORD}"
+    /usr/local/bin/openssl enc -aes-256-cbc -md sha512 -salt -in android/app/google-services.json -out android/app/google-services.enc -k "${PASSWORD}"
 }
