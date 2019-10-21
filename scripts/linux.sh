@@ -13,6 +13,15 @@ aptInstall() {
     fi
 }
 
+npmInstall() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "No package name passed into npm install, exiting..."
+        exit 2
+    else
+        sudo npm install -g ${1}
+    fi
+}
+
 # Misc
 aptInstall curl
 aptInstall xclip
@@ -116,6 +125,13 @@ cp ./resources/personal/.xbindkeysrc ~
 aptInstall default-jdk
 # Will probably need to update version in here
 cp ./resources/personal/environment /etc/
+
+## Nodejs and npm
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+### Angular CLI
+npmInstall @angular/cli
 
 ## Sublime
 sudo snap install sublime-text --classic
