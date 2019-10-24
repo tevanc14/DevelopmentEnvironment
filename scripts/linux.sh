@@ -141,3 +141,6 @@ sudo snap install atom --classic
 
 ## Postman
 sudo snap install postman
+
+## Firebase
+curl -sL firebase.tools | sudo bash
