@@ -13,6 +13,15 @@ aptInstall() {
     fi
 }
 
+aptGetInstall() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "No package name passed into apt get install, exiting..."
+        exit 2
+    else
+        sudo apt-get install ${1} -y
+    fi
+}
+
 npmInstall() {
     if [[ "$#" -ne 1 ]]; then
         echo "No package name passed into npm install, exiting..."
@@ -136,7 +145,7 @@ cp ./resources/personal/environment /etc/
 
 ## Nodejs and npm
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
+aptGetInstall nodejs
 
 ### Angular CLI
 npmInstall @angular/cli
@@ -152,3 +161,6 @@ sudo snap install postman
 
 ## Firebase
 curl -sL firebase.tools | sudo bash
+
+## Gpick (color picker)
+aptInstall gpick
