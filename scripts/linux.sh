@@ -59,6 +59,14 @@ gsettings set org.gnome.desktop.session idle-delay 900
 ## Workspaces on all montiors
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
+## Dock
+
+### Show dock on all monitors
+gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
+
+### Set dock position to bottom
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+
 ## Set default audio device
 # Find name and ID with `pactl list sinks`
 # set-default-sink 'alsa_output.pci-0000_01_00.1.hdmi-stereo'
