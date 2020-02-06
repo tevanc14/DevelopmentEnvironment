@@ -31,6 +31,15 @@ npmInstall() {
     fi
 }
 
+pipInstall() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "No package name passed into pip install, exiting..."
+        exit 2
+    else
+        /usr/bin/python3 -m pip install -U ${1} --user
+    fi
+}
+
 # Misc
 aptInstall curl
 aptInstall xclip
@@ -169,3 +178,15 @@ aptInstall gpick
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && aptGetInstall google-cloud-sdk
+
+## Pip
+aptGetInstall python3-pip
+
+## Black
+pipInstall black
+
+## Pylint
+pipInstall pylint
+
+## Rope
+pipInstall rope
