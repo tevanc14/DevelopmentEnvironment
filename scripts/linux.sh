@@ -190,3 +190,7 @@ pipInstall pylint
 
 ## Rope
 pipInstall rope
+
+## Teamviewer
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+aptInstall ./teamviewer_amd64.deb
