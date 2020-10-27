@@ -109,7 +109,7 @@ code --install-extension Shan.code-settings-sync
 git clone https://github.com/abertsch/Menlo-for-Powerline.git
 sudo mv Menlo-for-Powerline/*.ttf /usr/share/fonts/
 sudo fc-cache -vf /usr/share/fonts/
-rm -r Menlo-for-Powerline/
+rm -rf Menlo-for-Powerline/
 
 ## Steam
 aptInstall steam-installer
