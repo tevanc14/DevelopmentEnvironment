@@ -1,0 +1,4 @@
+"wmctrl -xa terminator"
+    m:0x10 + c:96
+    Mod2 + F12
+

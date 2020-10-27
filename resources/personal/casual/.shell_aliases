@@ -1,0 +1,20 @@
+SUBLIME="/usr/local/bin/sublime"
+
+# Navigation
+alias desk="cd ~/Desktop"
+alias doc="cd ~/Documents"
+alias down="cd ~/Downloads"
+
+# Files
+alias edit_aliases="vim ~/.shell_aliases"
+alias edit_functions="vim ~/.shell_functions"
+alias edit_zsh="vim ~/.zshrc"
+alias source_zsh="source ~/.zshrc"
+
+# Git
+alias gedit_commit="git commit --amend --no-edit && git push -f"
+alias glom="git pull origin master"
+alias gundo_commit="git reset HEAD~"
+
+# Miscellaneous
+alias sublime=${SUBLIME}

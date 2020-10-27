@@ -3,6 +3,7 @@
 DEV_DIR=~/dev
 PROJECTS_DIR=${DEV_DIR}/projects
 APPLICATIONS_DIR=${DEV_DIR}/applications
+RESOURCES_DIR=./resources/personal/dev
 
 aptInstall() {
     if [[ "$#" -ne 1 ]]; then
@@ -63,7 +64,7 @@ upgrade_oh_my_zsh
 
 # Dot files
 cd "$(dirname "$0")"
-cp ./resources/personal/.zshrc ./resources/personal/.shell_aliases ./resources/personal/.shell_functions ~
+cp ${RESOURCES_DIR}/.zshrc ${RESOURCES_DIR}/.shell_aliases ${RESOURCES_DIR}/.shell_functions ~
 cd
 
 # OS Settings
