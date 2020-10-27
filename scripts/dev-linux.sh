@@ -3,7 +3,7 @@
 DEV_DIR=~/dev
 PROJECTS_DIR=${DEV_DIR}/projects
 APPLICATIONS_DIR=${DEV_DIR}/applications
-RESOURCES_DIR=./resources/personal/dev
+RESOURCES_DIR=./../resources/personal/dev
 
 aptInstall() {
     if [[ "$#" -ne 1 ]]; then

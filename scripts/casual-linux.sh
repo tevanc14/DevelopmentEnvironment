@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RESOURCES_DIR=./resources/personal/casual
+RESOURCES_DIR=./../resources/personal/casual
 
 aptInstall() {
     if [[ "$#" -ne 1 ]]; then
