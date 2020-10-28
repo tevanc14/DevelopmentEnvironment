@@ -41,7 +41,6 @@ upgrade_oh_my_zsh
 # Dot files
 cd "$(dirname "$0")"
 cp ${RESOURCES_DIR}/.zshrc ${RESOURCES_DIR}/.shell_aliases ${RESOURCES_DIR}/.shell_functions ~
-cd
 
 # OS Settings
 
@@ -79,8 +78,7 @@ sudo snap install spotify
 
 ## VSCode
 sudo snap install code --classic
-code --install-extension Shan.code-settings-sync
-# Type ">Sync" In Command Palette into order download / upload
+
 # Get powerline font for integrated terminal
 git clone https://github.com/abertsch/Menlo-for-Powerline.git
 sudo mv Menlo-for-Powerline/*.ttf /usr/share/fonts/
@@ -94,7 +92,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ## Terminator
 aptInstall terminator
-cp ./resources/personal/terminator.config ~/.config/terminator/config
+cp ${RESOURCES_DIR}/terminator.config ~/.config/terminator/config
 
 ## Keyboard shortcuts
 
@@ -103,7 +101,7 @@ aptInstall wmctrl
 
 ### xbindkeys (map keys to commands)
 aptInstall xbindkeys
-cp ./resources/personal/.xbindkeysrc ~
+cp ${RESOURCES_DIR}/personal/.xbindkeysrc ~
 
 ## Sublime
 sudo snap install sublime-text --classic
