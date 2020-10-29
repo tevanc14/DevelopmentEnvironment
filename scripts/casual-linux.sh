@@ -53,6 +53,9 @@ gsettings set org.gnome.desktop.session idle-delay 900
 ## Workspaces on all montiors
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
+## Set sleep to 15 minutes
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
+
 ## Dock
 
 ### Show dock on all monitors
@@ -92,6 +95,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ## Terminator
 aptInstall terminator
+mkdir -p ~/.config/terminator
 cp ${RESOURCES_DIR}/terminator.config ~/.config/terminator/config
 
 ## Keyboard shortcuts
@@ -101,7 +105,7 @@ aptInstall wmctrl
 
 ### xbindkeys (map keys to commands)
 aptInstall xbindkeys
-cp ${RESOURCES_DIR}/personal/.xbindkeysrc ~
+cp ${RESOURCES_DIR}/.xbindkeysrc ~
 
 ## Sublime
 sudo snap install sublime-text --classic
