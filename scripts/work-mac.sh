@@ -43,7 +43,7 @@ cp ${RESOURCES}/.shell_aliases ${RESOURCES}/.shell_functions ${RESOURCES}/.zshrc
 
 # Set up Oath
 cd ${ZDEV} && git clone git@gitlab.zgtools.net:devex/aws/tools/oath.git && cd -
-continue "Go run ./oath in ${ZDEV}/oath"
+continue "Go start docker and run ./oath in ${ZDEV}/oath"
 
 # Install terraform version
 tfenv install 0.14.5
