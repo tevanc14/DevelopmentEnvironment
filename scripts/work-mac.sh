@@ -54,8 +54,13 @@ cp ${RESOURCES}/.shell_aliases ${RESOURCES}/.shell_functions ${RESOURCES}/.zshrc
 cd ${ZDEV} && git clone git@gitlab.zgtools.net:devex/aws/tools/oath.git && cd -
 continue "Go start docker and run ./oath in ${ZDEV}/oath"
 
-# Install terraform version
+# Terraform version
 tfenv install 0.14.5
+tfenv use 0.14.5
+
+# Node version
+nvm install 14.16.0
+nvm use 14 
 
 # Display turns off after x minutes when on battery and y when charging
 sudo pmset -b sleep 5
