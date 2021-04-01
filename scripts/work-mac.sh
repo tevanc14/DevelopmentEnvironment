@@ -29,6 +29,9 @@ mkdir -p ${ZDEV}
 # Need to see if mas signin is available in Big Sur
 continue "Go sign in to the App Store"
 
+# Must be on the VPN for git clones
+continue "Go connect to the VPN"
+
 # Mac command line tools (I think you need this?)
 xcode-select --install
 
@@ -41,11 +44,8 @@ brew bundle install --global
 
 # Terminal setup
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+continue "Go run p10k configure (this will install the powerline font)"
 
 # Copy config files
 cp ${RESOURCES}/.shell_aliases ${RESOURCES}/.shell_functions ${RESOURCES}/.zshrc ~/
@@ -62,12 +62,14 @@ tfenv use 0.14.5
 nvm install 14.16.0
 nvm use 14 
 
-# Display turns off after x minutes when on battery and y when charging
+# Sleep x minutes when on battery (-b) and y when charging (-c)
 sudo pmset -b sleep 5
+sudo pmset -b displaysleep 5
 sudo pmset -c sleep 30
+sudo pmset -c displaysleep 30
 
 # Autohide dock
-defaults write "com.apple.dock" "autohide" -bool 1
+defaults write "com.apple.dock" "autohide" -int 1
 
 # Restart dock after changes
 killall Dock
@@ -79,7 +81,7 @@ defaults write "com.apple.menuextra.battery" "ShowPercent" -bool YES
 defaults write "com.apple.menuextra.clock" "DateFormat" -string "EEE d MMM h:mm:ss a"
 
 # Keyboard repeat settings
-defaults write "Apple Global Domain" "InitialKeyRepeat" -int 15
+defaults write "Apple Global Domain" "InitialKeyRepeat" -int 25
 defaults write "Apple Global Domain" "KeyRepeat" -int 2
 
 # Alert sound volume
@@ -101,9 +103,23 @@ killall SystemUIServer
 # Install iterm themes
 git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git
 iTerm2-Color-Schemes/tools/import-scheme.sh iTerm2-Color-Schemes/schemes/*
+rm -rf iTerm2-Color-Schemes/
+
+# Dark mode
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
+# Default Chrome browser (Chrome has to be not open)
+open -a "Google Chrome" --args --make-default-browser
 
 # Manual steps
-continue "Go import the iTerm profile from ./../resources/work/iTermDefaultProfile.json"
+continue "Go import the iTerm profile from ${RESOURCES}/iTermDefaultProfile.json"
 continue "Open the Jetbrains Toolbox app"
 continue "Open crontab and decide if this should all go in there: $(cat ${RESOURCES}/crontab)"
 continue "Set up the Google Drive application"
+continue "Set up Okta in your browser"
+continue "Set up a Gitlab SSH key https://docs.gitlab.com/ee/ssh/#generate-an-ssh-key-pair"
+
+# Things that currently don't work
+# - Bluetooth options in top bar
+# - Tap to click on trackpad
+# - Battery percentage
