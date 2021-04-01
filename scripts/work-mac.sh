@@ -67,30 +67,33 @@ sudo pmset -b sleep 5
 sudo pmset -c sleep 30
 
 # Autohide dock
-defaults write com.apple.dock autohide -bool 1
+defaults write "com.apple.dock" "autohide" -bool 1
 
 # Restart dock after changes
 killall Dock
 
 # Show battery percentage
-defaults write com.apple.menuextra.battery ShowPercent -bool YES
+defaults write "com.apple.menuextra.battery" "ShowPercent" -bool YES
 
 # Change time display format
-defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM h:mm:ss a"
+defaults write "com.apple.menuextra.clock" "DateFormat" -string "EEE d MMM h:mm:ss a"
 
 # Keyboard repeat settings
-defaults write "Apple Global Domain" InitialKeyRepeat -int 15
-defaults write "Apple Global Domain" KeyRepeat -int 2
+defaults write "Apple Global Domain" "InitialKeyRepeat" -int 15
+defaults write "Apple Global Domain" "KeyRepeat" -int 2
+
+# Alert sound volume
+defaults write "Apple Global Domain" "com.apple.sound.beep.volume" -int 0
 
 # # Defaults from files (maybe I'll figure this out one day)
 # writeDefaultsFromFile "com.apple.driver.AppleBluetoothMultitouch.mouse" "mouseDefaults"
 # writeDefaultsFromFile "com.apple.driver.AppleBluetoothMultitouch.trackpad" "trackpadDefaults"
 # writeDefaultsFromFile "com.apple.driver.AppleHIDMouse" "hidMouseDefaults"
 # writeDefaultsFromFile "com.apple.systemuiserver" "systemUiServer"
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse '{MouseButtonDivision=55;MouseButtonMode=TwoButton;MouseHorizontalScroll=1;MouseMomentumScroll=1;MouseOneFingerDoubleTapGesture=0;MouseTwoFingerDoubleTapGesture=3;MouseTwoFingerHorizSwipeGesture=2;MouseVerticalScroll=1;UserPreferences=1;}';
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad '{Clicking=1;DragLock=0;Dragging=0;TrackpadCornerSecondaryClick=0;TrackpadFiveFingerPinchGesture=2;TrackpadFourFingerHorizSwipeGesture=2;TrackpadFourFingerPinchGesture=2;TrackpadFourFingerVertSwipeGesture=2;TrackpadHandResting=1;TrackpadHorizScroll=1;TrackpadMomentumScroll=1;TrackpadPinch=1;TrackpadRightClick=1;TrackpadRotate=1;TrackpadScroll=1;TrackpadThreeFingerDrag=0;TrackpadThreeFingerHorizSwipeGesture=2;TrackpadThreeFingerTapGesture=0;TrackpadThreeFingerVertSwipeGesture=2;TrackpadTwoFingerDoubleTapGesture=1;TrackpadTwoFingerFromRightEdgeSwipeGesture=3;USBMouseStopsTrackpad=0;UserPreferences=1;version=5;}';
-defaults write com.apple.driver.AppleHIDMouse '{Button1=1;Button2=1;Button3=0;Button4=0;Button4Click=0;Button4Force=0;ButtonDominance=1;ScrollH=1;ScrollS=4;ScrollSSize=30;ScrollV=1;}';
-defaults write com.apple.systemuiserver '{"NSStatusItemVisibleSiri"=0;"NSStatusItemVisiblecom.apple.menuextra.airport"=1;"NSStatusItemVisiblecom.apple.menuextra.appleuser"=1;"NSStatusItemVisiblecom.apple.menuextra.battery"=1;"NSStatusItemVisiblecom.apple.menuextra.bluetooth"=1;"NSStatusItemVisiblecom.apple.menuextra.clock"=1;"NSStatusItemVisiblecom.apple.menuextra.volume"=1;"__NSEnableTSMDocumentWindowLevel"=1;"last-analytics-stamp"="638390664.8063281";"last-messagetrace-stamp"="606690643.909081";menuExtras=("/System/Library/CoreServices/MenuExtras/Clock.menu","/System/Library/CoreServices/MenuExtras/AirPort.menu","/System/Library/CoreServices/MenuExtras/User.menu","/System/Library/CoreServices/MenuExtras/Bluetooth.menu","/System/Library/CoreServices/MenuExtras/Volume.menu","/System/Library/CoreServices/MenuExtras/Battery.menu");}';
+defaults write "com.apple.driver.AppleBluetoothMultitouch.mouse" '{MouseButtonDivision=55;MouseButtonMode=TwoButton;MouseHorizontalScroll=1;MouseMomentumScroll=1;MouseOneFingerDoubleTapGesture=0;MouseTwoFingerDoubleTapGesture=3;MouseTwoFingerHorizSwipeGesture=2;MouseVerticalScroll=1;UserPreferences=1;}';
+defaults write "com.apple.driver.AppleBluetoothMultitouch.trackpad" '{Clicking=1;DragLock=0;Dragging=0;TrackpadCornerSecondaryClick=0;TrackpadFiveFingerPinchGesture=2;TrackpadFourFingerHorizSwipeGesture=2;TrackpadFourFingerPinchGesture=2;TrackpadFourFingerVertSwipeGesture=2;TrackpadHandResting=1;TrackpadHorizScroll=1;TrackpadMomentumScroll=1;TrackpadPinch=1;TrackpadRightClick=1;TrackpadRotate=1;TrackpadScroll=1;TrackpadThreeFingerDrag=0;TrackpadThreeFingerHorizSwipeGesture=2;TrackpadThreeFingerTapGesture=0;TrackpadThreeFingerVertSwipeGesture=2;TrackpadTwoFingerDoubleTapGesture=1;TrackpadTwoFingerFromRightEdgeSwipeGesture=3;USBMouseStopsTrackpad=0;UserPreferences=1;version=5;}';
+defaults write "com.apple.driver.AppleHIDMouse" '{Button1=1;Button2=1;Button3=0;Button4=0;Button4Click=0;Button4Force=0;ButtonDominance=1;ScrollH=1;ScrollS=4;ScrollSSize=30;ScrollV=1;}';
+defaults write "com.apple.systemuiserver" '{"NSStatusItemVisibleSiri"=0;"NSStatusItemVisiblecom.apple.menuextra.airport"=1;"NSStatusItemVisiblecom.apple.menuextra.appleuser"=1;"NSStatusItemVisiblecom.apple.menuextra.battery"=1;"NSStatusItemVisiblecom.apple.menuextra.bluetooth"=1;"NSStatusItemVisiblecom.apple.menuextra.clock"=1;"NSStatusItemVisiblecom.apple.menuextra.volume"=1;"__NSEnableTSMDocumentWindowLevel"=1;"last-analytics-stamp"="638390664.8063281";"last-messagetrace-stamp"="606690643.909081";menuExtras=("/System/Library/CoreServices/MenuExtras/Clock.menu","/System/Library/CoreServices/MenuExtras/AirPort.menu","/System/Library/CoreServices/MenuExtras/User.menu","/System/Library/CoreServices/MenuExtras/Bluetooth.menu","/System/Library/CoreServices/MenuExtras/Volume.menu","/System/Library/CoreServices/MenuExtras/Battery.menu");}';
 
 # Have to restart the UI Server after the defaults changes
 killall SystemUIServer

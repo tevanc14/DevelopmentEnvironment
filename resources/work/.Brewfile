@@ -49,5 +49,5 @@ cask "visual-studio-code"
 cask "webstorm"
 cask "zoom"
 
-mas "Display Menu", id: 549083868 
+mas "Display Menu", id: 549083868
 mas "Microsoft Remote Desktop", id: 1295203466
