@@ -112,12 +112,14 @@ osascript -e 'tell app "System Events" to tell appearance preferences to set dar
 open -a "Google Chrome" --args --make-default-browser
 
 # Manual steps
-continue "Go import the iTerm profile from ${RESOURCES}/iTermDefaultProfile.json"
-continue "Open the Jetbrains Toolbox app"
+continue "Go import the iTerm profile from ${RESOURCES}/iTermProfiles.json"
+continue "Open the Jetbrains Toolbox app and sign in (use personal account) and turn on sync in IDEs (will need to import DataGrip manually from ${RESOURCES}/DataGripSettings.zip)"
 continue "Open crontab and decide if this should all go in there: $(cat ${RESOURCES}/crontab)"
 continue "Set up the Google Drive application"
 continue "Set up Okta in your browser"
 continue "Set up a Gitlab SSH key https://docs.gitlab.com/ee/ssh/#generate-an-ssh-key-pair"
+continue "Start BeardedSpice and have it run on startup"
+continue "Sync VSCode settings from command palette"
 
 # Things that currently don't work
 # - Bluetooth options in top bar
