@@ -63,8 +63,8 @@ nvm install 14.16.0
 nvm use 14 
 
 # Sleep x minutes when on battery (-b) and y when charging (-c)
-sudo pmset -b sleep 5
-sudo pmset -b displaysleep 5
+sudo pmset -b sleep 10
+sudo pmset -b displaysleep 10
 sudo pmset -c sleep 30
 sudo pmset -c displaysleep 30
 
@@ -115,6 +115,7 @@ open -a "Google Chrome" --args --make-default-browser
 continue "Go import the iTerm profile from ${RESOURCES}/iTermProfiles.json"
 continue "Open the Jetbrains Toolbox app and sign in (use personal account) and turn on sync in IDEs (will need to import DataGrip manually from ${RESOURCES}/DataGripSettings.zip)"
 continue "Open crontab and decide if this should all go in there: $(cat ${RESOURCES}/crontab)"
+continue "Open Docker (otherwise it will fail when trying to run a command and be confusing)"
 continue "Set up the Google Drive application"
 continue "Set up Okta in your browser"
 continue "Set up a Gitlab SSH key https://docs.gitlab.com/ee/ssh/#generate-an-ssh-key-pair"
@@ -125,3 +126,4 @@ continue "Sync VSCode settings from command palette"
 # - Bluetooth options in top bar
 # - Tap to click on trackpad
 # - Battery percentage
+# - Dotnet installs latest version (currently using 3.1.0) https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.407-macos-x64-installer
