@@ -65,7 +65,7 @@ nvm use 14
 # Sleep x minutes when on battery (-b) and y when charging (-c)
 sudo pmset -b sleep 10
 sudo pmset -b displaysleep 10
-sudo pmset -c sleep 30
+sudo pmset -c sleep 0
 sudo pmset -c displaysleep 30
 
 # Autohide dock
@@ -109,7 +109,11 @@ rm -rf iTerm2-Color-Schemes/
 osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
 
 # Default Chrome browser (Chrome has to be not open)
+continue "Close Chrome (if open) so it can be made the default browser"
 open -a "Google Chrome" --args --make-default-browser
+
+# Git config
+git config --global init.defaultBranch main
 
 # Manual steps
 continue "Go import the iTerm profile from ${RESOURCES}/iTermProfiles.json"
