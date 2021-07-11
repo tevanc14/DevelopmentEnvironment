@@ -125,6 +125,7 @@ continue "Set up Okta in your browser"
 continue "Set up a Gitlab SSH key https://docs.gitlab.com/ee/ssh/#generate-an-ssh-key-pair"
 continue "Start BeardedSpice and have it run on startup"
 continue "Sync VSCode settings from command palette"
+continue "Install gcloud with 'sh /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/install.sh'"
 
 # Things that currently don't work
 # - Bluetooth options in top bar
